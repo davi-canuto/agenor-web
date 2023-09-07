@@ -6,7 +6,8 @@ const ProjectSchema = new mongoose.Schema({
   url: String,
   startAt: Date,
   endAt: Date,
-  stacks: [{
+  isPrivate: Boolean,
+  techs: [{
     type: Schema.Type.ObjectId,
     ref: 'Stack'
   }]
