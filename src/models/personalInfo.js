@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Schema } from "mongoose";
 
 const PersonalInfoSchema = new mongoose.Schema({
   firstName: String,
@@ -16,6 +16,8 @@ const PersonalInfoSchema = new mongoose.Schema({
   twitterUrl: String,
   linkedinUsername: String,
   linkedinUrl: String,
-})
+});
 
-module.exports = mongoose.models.PersonalInfo || mongoose.model('PersonalInfo', PersonalInfoSchema)
+module.exports =
+  mongoose.models.PersonalInfo ||
+  mongoose.model("PersonalInfo", PersonalInfoSchema);

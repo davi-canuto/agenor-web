@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Schema } from "mongoose";
 
 const ExperienceSchema = new mongoose.Schema({
   name: String,
@@ -9,6 +9,7 @@ const ExperienceSchema = new mongoose.Schema({
   workDescription: String,
   startAt: Date,
   endAt: Date,
-})
+});
 
-module.exports = mongoose.models.Experience || mongoose.model('Experience', ExperienceSchema)
+module.exports =
+  mongoose.models.Experience || mongoose.model("Experience", ExperienceSchema);
