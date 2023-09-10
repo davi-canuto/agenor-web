@@ -1,11 +1,11 @@
-const PortfolioService = require("./PortfolioService");
+import PortifolioService from "../../../services/portifolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
   const { push } = req.headers;
 
   try {
-    const service = new PortfolioService();
+    const service = new PortifolioService();
     let response;
 
     if (method != "POST") {

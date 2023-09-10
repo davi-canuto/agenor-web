@@ -1,20 +1,20 @@
-import dbConnect from "../lib/dbConnect";
-import * as models from "../models";
+import PortifolioRepository from "../repositories/portifolioRepository";
 
-class PortfolioService {
+export default class PortfolioService {
   constructor(secret) {
     this.secret = secret;
   }
 
-  async initialize() {
-    await dbConnect();
+  async create(portfolioData) {
+    try {
+      const dbRes = await PortifolioRepository.create(portfolioData);
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
-
-  async create(portfolioData) {}
   async createAndPush(portfolioData) {}
   async update(portfolioId, updatedData) {}
   async updateAndPush(portfolioId, updatedData) {}
   async get(portfolioId) {}
 }
-
-module.exports = PortfolioService;
