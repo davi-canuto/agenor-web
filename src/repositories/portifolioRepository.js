@@ -5,7 +5,7 @@ export default class PortifolioRepository {
   static async create(data) {
     try {
       await dbConnect();
-      // const record = new Portfiolio(data);
+
       const record = new Portfiolio({ isPersisted: false });
 
       return await record.save();

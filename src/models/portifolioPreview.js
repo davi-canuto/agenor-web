@@ -7,7 +7,6 @@ const PortifolioSchema = new mongoose.Schema({
   languages: { type: Schema.Types.ObjectId, ref: "Language" },
   skills: { type: Schema.Types.ObjectId, ref: "Skill" },
   techs: { type: Schema.Types.ObjectId, ref: "Tech" },
-  userSecret: String,
 });
 
 module.exports =
