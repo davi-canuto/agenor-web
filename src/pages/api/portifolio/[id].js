@@ -1,20 +1,24 @@
 export default async function handler(req, res) {
   const { method } = req;
   const { id } = req.query;
-  const { push, secret } = req.headers;
+  const { preview, secret } = req.headers;
 
   try {
     const service = new PortfolioService(secret);
     let response;
 
     if (method == "PUT") {
-      if (push) {
-        response = service.update(id, req.body);
+      if (preview) {
+        response = service.updatePreview(id, req.body);
       } else {
-        response = service.updateAndPush(id, req.body);
+        response = service.update(id, req.body);
       }
     } else if (method == "GET") {
-      response = service.get(id);
+      if (preview) {
+        response = service.getPreview(id);
+      } else {
+        response = service.get(id);
+      }
     } else {
       throw new Error("invalid request");
     }
