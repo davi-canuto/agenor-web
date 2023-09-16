@@ -1,4 +1,5 @@
 import PortifolioRepository from "../repositories/portifolioRepository";
+import PortifolioPreviewRepository from "../repositories/portifolioPreviewRepository";
 
 export default class PortfolioService {
   constructor(secret) {
@@ -13,8 +14,17 @@ export default class PortfolioService {
       throw new Error(error);
     }
   }
-  async createAndPush(portfolioData) {}
+
+  async createPreview(portifolioData) {
+    try {
+      const dbRes = await PortifolioPreviewRepository.create(portifolioData);
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async update(portfolioId, updatedData) {}
-  async updateAndPush(portfolioId, updatedData) {}
+  async updatePreview(portfolioId, updatedData) {}
   async get(portfolioId) {}
 }

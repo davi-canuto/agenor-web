@@ -2,7 +2,7 @@ import PortifolioService from "../../../services/portifolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { push } = req.headers;
+  const { preview } = req.headers;
 
   try {
     const service = new PortifolioService();
@@ -12,8 +12,8 @@ export default async function handler(req, res) {
       throw new Error("invalid request");
     }
 
-    if (push) {
-      response = await service.createAndPush(req.body);
+    if (preview) {
+      response = await service.createPreview(req.body);
     } else {
       response = await service.create(req.body);
     }
