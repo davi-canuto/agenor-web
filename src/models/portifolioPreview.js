@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const PortfolioSchema = new mongoose.Schema({
+const PortifolioPreviewSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
-  birthdate: Date,
+  birthdate: String,
   occupation: String,
   goals: String,
   biography: String,
@@ -20,8 +20,8 @@ const PortfolioSchema = new mongoose.Schema({
     {
       name: String,
       description: String,
-      startAt: Date,
-      endAt: Date,
+      startAt: String,
+      endAt: String,
       techs: [
         {
           name: String,
@@ -39,8 +39,8 @@ const PortfolioSchema = new mongoose.Schema({
       companyUrl: String,
       jobPosition: String,
       workDescription: String,
-      startAt: Date,
-      endAt: Date,
+      startAt: String,
+      endAt: String,
     },
   ],
   skills: [
@@ -55,8 +55,8 @@ const PortfolioSchema = new mongoose.Schema({
       name: String,
       description: String,
       certificateUrl: String,
-      startAt: Date,
-      endAt: Date,
+      startAt: String,
+      endAt: String,
     },
   ],
   languages: [
@@ -68,4 +68,5 @@ const PortfolioSchema = new mongoose.Schema({
 });
 
 module.exports =
-  mongoose.models.Portifolio || mongoose.model("Portifolio", PortfolioSchema);
+  mongoose.models.PortifolioPreview ||
+  mongoose.model("PortifolioPreview", PortifolioPreviewSchema);

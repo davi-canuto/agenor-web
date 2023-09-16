@@ -1,24 +1,55 @@
 import dbConnect from "../lib/dbConnect";
-import Portfiolio from "../models/portifolio";
+import PortfiolioPreview from "../models/portifolioPreview";
 
-export default class PortifolioRepository {
+export default class PortifolioPreviewRepository {
   static async create(data) {
     try {
       await dbConnect();
 
-      const record = new Portfiolio(data);
+      const portifolio = new PortfiolioPreview(data);
 
-      return await record.save();
+      return await portifolio.save();
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  static async findAll() {}
+  static async find(id) {
+    try {
+      await dbConnect();
+      const portfolio = await PortfiolioPreview.findById(id);
 
-  static async findById(id) {}
+      return portfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 
-  static async update(id, data) {}
+  static async update(id, data) {
+    try {
+      await dbConnect();
+      const updatedPortfolio = await PortfiolioPreview.findByIdAndUpdate(
+        id,
+        data,
+        {
+          new: true,
+        }
+      );
 
-  static async delete(id) {}
+      return updatedPortfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  static async delete(id) {
+    try {
+      await dbConnect();
+      const deletedPortfolio = await PortfiolioPreview.findByIdAndRemove(id);
+
+      return deletedPortfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }

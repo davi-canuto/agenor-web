@@ -2,10 +2,6 @@ import PortifolioRepository from "../repositories/portifolioRepository";
 import PortifolioPreviewRepository from "../repositories/portifolioPreviewRepository";
 
 export default class PortfolioService {
-  constructor(secret) {
-    this.secret = secret;
-  }
-
   async create(portfolioData) {
     try {
       const dbRes = await PortifolioRepository.create(portfolioData);
@@ -24,7 +20,46 @@ export default class PortfolioService {
     }
   }
 
-  async update(portfolioId, updatedData) {}
-  async updatePreview(portfolioId, updatedData) {}
-  async get(portfolioId) {}
+  async update(portfolioId, updatedData) {
+    try {
+      const dbRes = await PortifolioRepository.update(portfolioId, updatedData);
+
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async updatePreview(portfolioId, updatedData) {
+    try {
+      const dbRes = await PortifolioPreviewRepository.update(
+        portfolioId,
+        updatedData
+      );
+
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async get(portfolioId) {
+    try {
+      const dbRes = await PortifolioRepository.find(portfolioId);
+
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async getPreview(portfolioId) {
+    try {
+      const dbRes = await PortifolioPreviewRepository.find(portfolioId);
+
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }

@@ -18,11 +18,42 @@ export default class PortifolioRepository {
     }
   }
 
-  static async findAll() {}
+  static async find(id) {
+    try {
+      await dbConnect();
+      const portfolio = await PortfiolioPreview.findById(id);
 
-  static async findById(id) {}
+      return portfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 
-  static async update(id, data) {}
+  static async update(id, data) {
+    try {
+      await dbConnect();
+      const updatedPortfolio = await PortfiolioPreview.findByIdAndUpdate(
+        id,
+        data,
+        {
+          new: true,
+        }
+      );
 
-  static async delete(id) {}
+      return updatedPortfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  static async delete(id) {
+    try {
+      await dbConnect();
+      const deletedPortfolio = await PortfiolioPreview.findByIdAndRemove(id);
+
+      return deletedPortfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
