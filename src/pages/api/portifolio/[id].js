@@ -1,23 +1,27 @@
+import PortifolioService from "../../../services/portifolioService";
+
 export default async function handler(req, res) {
   const { method } = req;
   const { id } = req.query;
-  const { preview, secret } = req.headers;
+  const { preview } = req.headers;
+
+  const realPreview = preview == "false" ? false : true;
 
   try {
-    const service = new PortfolioService(secret);
+    const service = new PortifolioService();
     let response;
 
     if (method == "PUT") {
-      if (preview) {
-        response = service.updatePreview(id, req.body);
+      if (realPreview) {
+        response = await service.updatePreview(id, req.body);
       } else {
-        response = service.update(id, req.body);
+        response = await service.update(id, req.body);
       }
     } else if (method == "GET") {
-      if (preview) {
-        response = service.getPreview(id);
+      if (realPreview) {
+        response = await service.getPreview(id);
       } else {
-        response = service.get(id);
+        response = await service.get(id);
       }
     } else {
       throw new Error("invalid request");

@@ -21,7 +21,7 @@ export default class PortifolioRepository {
   static async find(id) {
     try {
       await dbConnect();
-      const portfolio = await PortfiolioPreview.findById(id);
+      const portfolio = await Portfiolio.findById(id);
 
       return portfolio;
     } catch (error) {
@@ -32,13 +32,9 @@ export default class PortifolioRepository {
   static async update(id, data) {
     try {
       await dbConnect();
-      const updatedPortfolio = await PortfiolioPreview.findByIdAndUpdate(
-        id,
-        data,
-        {
-          new: true,
-        }
-      );
+      const updatedPortfolio = await Portfiolio.findByIdAndUpdate(id, data, {
+        new: true,
+      });
 
       return updatedPortfolio;
     } catch (error) {
@@ -49,7 +45,7 @@ export default class PortifolioRepository {
   static async delete(id) {
     try {
       await dbConnect();
-      const deletedPortfolio = await PortfiolioPreview.findByIdAndRemove(id);
+      const deletedPortfolio = await Portfiolio.findByIdAndRemove(id);
 
       return deletedPortfolio;
     } catch (error) {

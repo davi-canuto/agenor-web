@@ -4,6 +4,8 @@ export default async function handler(req, res) {
   const { method } = req;
   const { preview } = req.headers;
 
+  const realPreview = preview == "false" ? false : true;
+
   try {
     const service = new PortifolioService();
     let response;
@@ -12,7 +14,7 @@ export default async function handler(req, res) {
       throw new Error("invalid request");
     }
 
-    if (preview) {
+    if (realPreview) {
       response = await service.createPreview(req.body);
     } else {
       response = await service.create(req.body);
@@ -20,6 +22,7 @@ export default async function handler(req, res) {
 
     res.status(201).json({ success: true, data: response });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ success: false, error: error.message });
   }
 }
