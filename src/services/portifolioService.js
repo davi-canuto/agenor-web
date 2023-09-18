@@ -53,6 +53,16 @@ export default class PortfolioService {
     }
   }
 
+  async getBySecret(secret) {
+    try {
+      const dbRes = await PortifolioRepository.findBySecret(secret);
+
+      return dbRes;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async getPreview(portfolioId) {
     try {
       const dbRes = await PortifolioPreviewRepository.find(portfolioId);

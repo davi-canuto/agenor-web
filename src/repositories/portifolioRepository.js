@@ -29,6 +29,20 @@ export default class PortifolioRepository {
     }
   }
 
+  static async findBySecret(secret) {
+    try {
+      await dbConnect();
+      console.log(secret)
+      const portfolio = await Portfiolio.findOne({
+        userSecret: secret,
+      });
+
+      return portfolio;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   static async update(id, data) {
     try {
       await dbConnect();
