@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       if (secret) {
         response = await service.getBySecret(secret);
       } else {
-        // response = await service.get(req.body);
+        throw new Error("You must be pass your SECRET to get portifolio");
       }
 
     res.status(201).json({ success: true, data: response });
