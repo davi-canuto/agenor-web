@@ -2,8 +2,7 @@ import PortifolioService from "../../../services/portifolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { id } = req.query;
-  const { preview } = req.headers;
+  const { id, preview } = req.query;
 
   const realPreview = preview == "true" ? true : false;
 

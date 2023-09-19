@@ -2,11 +2,10 @@ import PortifolioService from "../../../services/portifolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { preview, secret } = req.headers;
+  const { preview, secret } = req.query;
 
   const realPreview = preview == "false" ? false : true;
 
-  console.log(secret);
   try {
     const service = new PortifolioService();
     let response;
@@ -20,8 +19,6 @@ export default async function handler(req, res) {
 
     if (method == "GET")
       if (secret) {
-        console.log(secret);
-
         response = await service.getBySecret(secret);
       } else {
         // response = await service.get(req.body);
