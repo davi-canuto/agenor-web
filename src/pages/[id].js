@@ -12,11 +12,9 @@ const Page = () => {
     try {
       setLoading(true);
 
-      const portfolioRes = await fetch(`/api/portifolio/${id}`, {
-        headers: {
-          preview: !!preview,
-        },
-      });
+      const portfolioRes = await fetch(
+        `/api/portifolio/${id}?preview=${preview}`
+      );
       const { success, data: portfolio } = await portfolioRes.json();
 
       if (!success) {
