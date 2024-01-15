@@ -1,4 +1,4 @@
-import PortifolioService from "../../../services/portifolioService";
+import PortfolioService from "../../../services/portfolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const realPreview = preview == "true" ? true : false;
 
   try {
-    const service = new PortifolioService();
+    const service = new PortfolioService();
     let response;
 
     if (method == "PUT") {

@@ -1,14 +1,14 @@
 import dbConnect from "../lib/dbConnect";
-import PortfiolioPreview from "../models/portifolioPreview";
+import PortfiolioPreview from "../models/portfolioPreview";
 
-export default class PortifolioPreviewRepository {
+export default class PortfolioPreviewRepository {
   static async create(data) {
     try {
       await dbConnect();
 
-      const portifolio = new PortfiolioPreview(data);
+      const portfolio = new PortfiolioPreview(data);
 
-      return await portifolio.save();
+      return await portfolio.save();
     } catch (error) {
       throw new Error(error);
     }

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const PortfolioSchema = new mongoose.Schema({
-  userSecret: String,
+const PortfolioPreviewSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   birthdate: String,
@@ -69,4 +68,5 @@ const PortfolioSchema = new mongoose.Schema({
 });
 
 module.exports =
-  mongoose.models.Portifolio || mongoose.model("Portifolio", PortfolioSchema);
+  mongoose.models.PortfolioPreview ||
+  mongoose.model("PortfolioPreview", PortfolioPreviewSchema);

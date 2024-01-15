@@ -1,19 +1,20 @@
-import PortifolioRepository from "../repositories/portifolioRepository";
-import PortifolioPreviewRepository from "../repositories/portifolioPreviewRepository";
+import PortfolioRepository from "../repositories/portfolioRepository";
+import PortfolioPreviewRepository from "../repositories/portfolioPreviewRepository";
 
 export default class PortfolioService {
   async create(portfolioData) {
     try {
-      const dbRes = await PortifolioRepository.create(portfolioData);
+      const dbRes = await PortfolioRepository.create(portfolioData);
       return dbRes;
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  async createPreview(portifolioData) {
+  async createPreview(portfolioData) {
     try {
-      const dbRes = await PortifolioPreviewRepository.create(portifolioData);
+      const dbRes = await PortfolioPreviewRepository.create(portfolioData);
+      console.log(dbRes);
       return dbRes;
     } catch (error) {
       throw new Error(error);
@@ -22,7 +23,7 @@ export default class PortfolioService {
 
   async update(portfolioId, updatedData) {
     try {
-      const dbRes = await PortifolioRepository.update(portfolioId, updatedData);
+      const dbRes = await PortfolioRepository.update(portfolioId, updatedData);
 
       return dbRes;
     } catch (error) {
@@ -32,7 +33,7 @@ export default class PortfolioService {
 
   async updatePreview(portfolioId, updatedData) {
     try {
-      const dbRes = await PortifolioPreviewRepository.update(
+      const dbRes = await PortfolioPreviewRepository.update(
         portfolioId,
         updatedData
       );
@@ -45,7 +46,7 @@ export default class PortfolioService {
 
   async get(portfolioId) {
     try {
-      const dbRes = await PortifolioRepository.find(portfolioId);
+      const dbRes = await PortfolioRepository.find(portfolioId);
 
       return dbRes;
     } catch (error) {
@@ -55,7 +56,7 @@ export default class PortfolioService {
 
   async getBySecret(secret) {
     try {
-      const dbRes = await PortifolioRepository.findBySecret(secret);
+      const dbRes = await PortfolioRepository.findBySecret(secret);
 
       return dbRes;
     } catch (error) {
@@ -65,7 +66,7 @@ export default class PortfolioService {
 
   async getPreview(portfolioId) {
     try {
-      const dbRes = await PortifolioPreviewRepository.find(portfolioId);
+      const dbRes = await PortfolioPreviewRepository.find(portfolioId);
 
       return dbRes;
     } catch (error) {

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import PortfolioDisplay from "../components/PortifolioDisplay";
+import PortfolioDisplay from "../components/PortfolioDisplay";
 
 const Page = () => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const Page = () => {
       setLoading(true);
 
       const portfolioRes = await fetch(
-        `/api/portifolio/${id}?preview=${preview}`
+        `/api/portfolio/${id}?preview=${preview}`
       );
       const { success, data: portfolio } = await portfolioRes.json();
 

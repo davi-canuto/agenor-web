@@ -1,4 +1,4 @@
-import PortifolioService from "../../../services/portifolioService";
+import PortfolioService from "../../../services/portfolioService";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const realPreview = preview == "false" ? false : true;
 
   try {
-    const service = new PortifolioService();
+    const service = new PortfolioService();
     let response;
 
     if (method == "POST")
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       if (secret) {
         response = await service.getBySecret(secret);
       } else {
-        throw new Error("You must be pass your SECRET to get portifolio");
+        throw new Error("You must be pass your SECRET to get portfolio");
       }
 
     res.status(201).json({ success: true, data: response });

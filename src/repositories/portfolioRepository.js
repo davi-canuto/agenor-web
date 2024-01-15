@@ -1,8 +1,8 @@
 import dbConnect from "../lib/dbConnect";
-import Portfiolio from "../models/portifolio";
+import Portfiolio from "../models/portfolio";
 import crypto from "crypto";
 
-export default class PortifolioRepository {
+export default class PortfolioRepository {
   static async create(data) {
     try {
       await dbConnect();
@@ -32,7 +32,7 @@ export default class PortifolioRepository {
   static async findBySecret(secret) {
     try {
       await dbConnect();
-      console.log(secret)
+      console.log(secret);
       const portfolio = await Portfiolio.findOne({
         userSecret: secret,
       });
