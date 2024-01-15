@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import PortfolioDisplay from "../components/PortifolioDisplay";
 
 const Page = () => {
   const router = useRouter();
@@ -38,14 +39,7 @@ const Page = () => {
 
   if (error) return <p>Error: {error.message}</p>;
 
-  return (
-    <div>
-      <h1>{portfolio?._id}</h1>
-      <p>{portfolio?.firstName}</p>
-      <p>{portfolio?.lastName}</p>
-      <pre>{JSON.stringify(portfolio, null, 2)}</pre>
-    </div>
-  );
+  return <PortfolioDisplay portfolio={portfolio} />;
 };
 
 export default Page;
