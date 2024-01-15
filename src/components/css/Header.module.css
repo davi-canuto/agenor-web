@@ -1,8 +1,11 @@
 .header {
-  background-color: #333;
-  border: 5px solid;
   display: flex;
   justify-content: center;
+  background-color: #3c3c3c;
+}
+
+.headerTitle {
   color: white;
-  margin: 0;
+  font-size: 12px;
+  font-family: "Fira Code", monospace;
 }

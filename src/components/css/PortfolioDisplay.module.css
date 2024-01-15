@@ -1,8 +1,15 @@
+.wrapper {
+  height: 100vh;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .title {
